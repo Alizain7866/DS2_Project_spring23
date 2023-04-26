@@ -11,13 +11,37 @@ for i in range (len(data_reader_pandas)):
     Data_set_list.append(int(data_reader_pandas[i][0]))
 
 
-tre = AVLTree()
-t1 = time.time()
-for i in Data_set_list:
-    tre.insert(i)
-t2 = time.time() 
-final = t2-t1 
-print (final)
+tre_1 = AVLTree()
+Initial_time_1000 = time.time()
+for i in range(1000):
+    tre_1.insert(Data_set_list[i])
+stopTime_1000 = time.time() 
+final_time_1000 = stopTime_1000-Initial_time_1000 
+print ("The time to insert 1000 Random Numbers is : ",final_time_1000)
+
+
+# #second AVL
+# tre_ = AVLTree()
+# t1 = time.time()
+# for i in Data_set_list:
+#     tre.insert(i)
+# t2 = time.time() 
+# final = t2-t1 
+# print (final)
+
+
+#Third AVL
+# tre = AVLTree()
+# t1 = time.time()
+# for i in Data_set_list:
+#     tre.insert(i)
+# t2 = time.time() 
+# final = t2-t1 
+# print (final)
+
+
+
+
 
 
 
