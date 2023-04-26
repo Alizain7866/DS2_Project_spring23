@@ -2,7 +2,7 @@ import pandas as pd
 from Avl_tree import AVLTree
 import timeit
 import time 
-data_reader_pandas = pd.read_csv('random_numbers.csv', delimiter=' \n', header=None).values.tolist()
+data_reader_pandas = pd.read_csv('dataset_correct.csv', delimiter=' \n', header=None).values.tolist()
 # tree = AVLTree()
 #print(data_reader_pandas)
 Data_set_list = []
