@@ -1,5 +1,5 @@
 import pandas as pd
-from avl_tree import AVLTree
+from Avl_tree import AVLTree
 import timeit
 import time 
 df = pd.read_csv('random_numbers.csv', delimiter=' \n', header=None).values.tolist()
