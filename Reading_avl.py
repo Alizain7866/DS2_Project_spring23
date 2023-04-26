@@ -2,18 +2,18 @@ import pandas as pd
 from Avl_tree import AVLTree
 import timeit
 import time 
-df = pd.read_csv('random_numbers.csv', delimiter=' \n', header=None).values.tolist()
+data_reader_pandas = pd.read_csv('random_numbers.csv', delimiter=' \n', header=None).values.tolist()
 # tree = AVLTree()
-#print(df)
-news = []
+#print(data_reader_pandas)
+Data_set_list = []
 
-for i in range (len(df)):
-    news.append(int(df[i][0]))
+for i in range (len(data_reader_pandas)):
+    Data_set_list.append(int(data_reader_pandas[i][0]))
 
 
 tre = AVLTree()
 t1 = time.time()
-for i in news:
+for i in Data_set_list:
     tre.insert(i)
 t2 = time.time() 
 final = t2-t1 
