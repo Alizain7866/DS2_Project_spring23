@@ -1,14 +1,13 @@
-
 import random
 
 class SkipNode:
-    def _init_(self, val=None, right=None, down=None):
+    def __init__(self, val=None, right=None, down=None):
         self.val = val
         self.right = right
         self.down = down
 
 class SkipList:
-    def _init_(self):
+    def __init__(self):
         self.head = SkipNode()
     
     def search(self, target):
