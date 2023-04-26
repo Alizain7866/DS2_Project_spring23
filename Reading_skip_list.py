@@ -103,3 +103,15 @@ final_time_500k = stopTime_500k-Initial_time_500k
 print ("The time to insert_num_500k is :",final_time_500k)
 
 output_list.append((insert_num_500k,final_time_500k))
+
+# 1M
+insert_num_1M = 1000000
+tre_1M = SkipList()
+Initial_time_1M = time.time()
+for i in range(insert_num_1M):
+    tre_1M.insert(Data_set_list[i])
+stopTime_1M = time.time() 
+final_time_1M = stopTime_1M-Initial_time_1M 
+print ("The time to insert_num_1M is :",final_time_1M)
+
+output_list.append((insert_num_1M,final_time_1M))
