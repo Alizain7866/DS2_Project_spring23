@@ -39,6 +39,72 @@ class AVLTree:
             return self._left_rotate(node)
         
         return node
+    
+    def delete(self, key):
+        if not self.root:
+            return self.root
+
+        def _delete(root, key):
+            if not root:
+                return root
+
+            elif key < root.key:
+                root.left = _delete(root.left, key)
+
+            elif key > root.key:
+                root.right = _delete(root.right, key)
+
+            else:
+                # node with only one child or no child
+                if not root.left:
+                    temp = root.right
+                    root = None
+                    return temp
+
+                elif not root.right:
+                    temp = root.left
+                    root = None
+                    return temp
+
+                # node with two children
+                temp = self.minValueNode(root.right)
+                root.key = temp.key
+                root.right = _delete(root.right, temp.key)
+
+            if not root:
+                return root
+
+            # update height of the current node
+            root.height = 1 + max(self.getHeight(root.left), self.getHeight(root.right))
+
+            # get the balance factor of the node
+            balance = self.getBalance(root)
+
+            # if the node is unbalanced, try out the 4 cases
+            if balance > 1 and self.getBalance(root.left) >= 0:
+                return self.rightRotate(root)
+
+            if balance < -1 and self.getBalance(root.right) <= 0:
+                return self.leftRotate(root)
+
+            if balance > 1 and self.getBalance(root.left) < 0:
+                root.left = self.leftRotate(root.left)
+                return self.rightRotate(root)
+
+            if balance < -1 and self.getBalance(root.right) > 0:
+                root.right = self.rightRotate(root.right)
+                return self.leftRotate(root)
+
+            return root
+
+        return _delete(self.root, key)
+
+    def minValueNode(self, node):
+            current = node
+            while current.left is not None:
+                current = current.left
+            return current
+
         
     def _left_rotate(self, node):
         new_root = node.right
