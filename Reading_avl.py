@@ -6,6 +6,8 @@ data_reader_pandas = pd.read_csv('dataset_correct.csv', delimiter=' \n', header=
 # tree = AVLTree()
 #print(data_reader_pandas)
 Data_set_list = []
+output_list = []
+
 
 for i in range (len(data_reader_pandas)):
     Data_set_list.append(int(data_reader_pandas[i][0]))
@@ -19,7 +21,7 @@ stopTime_1000 = time.time()
 final_time_1000 = stopTime_1000-Initial_time_1000 
 print ("The time to insert_num_1000 is :",final_time_1000)
 
-
+output_list.append((insert_num_1000,final_time_1000))
 # #second AVL
 # tre_ = AVLTree()
 # t1 = time.time()
