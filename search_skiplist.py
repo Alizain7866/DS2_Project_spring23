@@ -75,7 +75,7 @@ output_list.append((insert_num_10k,final_time_10k))
 
 # 50k
 
-insert_num_50k = 10000
+insert_num_50k = 50000
 tre_50k = SkipList()
 for i in range(insert_num_50k):
     tre_50k.insert(Data_set_list[i],[i])
