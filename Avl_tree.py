@@ -124,28 +124,33 @@ class AVLTree:
                               self._get_height(node.right))
 
         # Check if the node is balanced
-        balance = self._get_balance(node)
+        balance = self._get_balance_factor(node)
 
         # Left-Left Case
-        if balance > 1 and self._get_balance(node.left) >= 0:
-            return self._rotate_right(node)
+        if balance > 1 and self._get_balance_factor(node.left) >= 0:
+            return self._right_rotate(node)
 
         # Right-Right Case
-        if balance < -1 and self._get_balance(node.right) <= 0:
-            return self._rotate_left(node)
+        if balance < -1 and self._get_balance_factor(node.right) <= 0:
+            return self._left_rotate(node)
 
         # Left-Right Case
-        if balance > 1 and self._get_balance(node.left) < 0:
-            node.left = self._rotate_left(node.left)
-            return self._rotate_right(node)
+        if balance > 1 and self._get_balance_factor(node.left) < 0:
+            node.left = self._left_rotate(node.left)
+            return self._right_rotate(node)
 
         # Right-Left Case
-        if balance < -1 and self._get_balance(node.right) > 0:
-            node.right = self._rotate_right(node.right)
-            return self._rotate_left(node)
+        if balance < -1 and self._get_balance_factor(node.right) > 0:
+            node.right = self._right_rotate(node.right)
+            return self._left_rotate(node)
 
         return node
-        
+    
+    def _find_min(self, node):
+        while node.left:
+            node = node.left
+        return node        
+    
     def space_complexity(self):
         if not self.root:
             return 0

@@ -24,7 +24,7 @@ for i in range (len(data_reader_pandas)):
 insert_num_1000 = 1000
 tre_1000 = SkipList()
 for i in range(insert_num_1000):
-    tre_1000.insert(Data_set_list[i],[i])
+    tre_1000.insert(Data_set_list[i])
 
 r_numbers = [random.randint(1, 10000) for _ in range(1000001)]
 
@@ -45,7 +45,7 @@ output_list.append((insert_num_1000,final_time_1000))
 insert_num_5000 = 5000
 tre_5000 = SkipList()
 for i in range(insert_num_5000):
-    tre_5000.insert(Data_set_list[i],[i])
+    tre_5000.insert(Data_set_list[i])
 
 Initial_time_5000 = time.time()
 for i in range(insert_num_5000):
@@ -61,7 +61,7 @@ output_list.append((insert_num_5000,final_time_5000))
 insert_num_10k = 10000
 tre_10k = SkipList()
 for i in range(insert_num_10k):
-    tre_10k.insert(Data_set_list[i],[i])
+    tre_10k.insert(Data_set_list[i])
 
 Initial_time_10k = time.time()
 for i in range(insert_num_10k):
@@ -78,7 +78,7 @@ output_list.append((insert_num_10k,final_time_10k))
 insert_num_50k = 10000
 tre_50k = SkipList()
 for i in range(insert_num_50k):
-    tre_50k.insert(Data_set_list[i],[i])
+    tre_50k.insert(Data_set_list[i])
 
 Initial_time_50k = time.time()
 for i in range(insert_num_50k):
@@ -95,7 +95,7 @@ output_list.append((insert_num_50k,final_time_50k))
 insert_num_100k = 100000
 tre_100k = SkipList()
 for i in range(insert_num_100k):
-    tre_100k.insert(Data_set_list[i],[i])
+    tre_100k.insert(Data_set_list[i])
 
 Initial_time_100k = time.time()
 for i in range(insert_num_100k):
@@ -112,7 +112,7 @@ output_list.append((insert_num_100k,final_time_100k))
 insert_num_500k = 500000
 tre_500k = SkipList()
 for i in range(insert_num_500k):
-    tre_500k.insert(Data_set_list[i],[i])
+    tre_500k.insert(Data_set_list[i])
 
 Initial_time_500k = time.time()
 for i in range(insert_num_500k):
@@ -126,10 +126,10 @@ output_list.append((insert_num_500k,final_time_500k))
 
 # 1M
 
-insert_num_1M = 500000
+insert_num_1M = 1000000
 tre_1M = SkipList()
 for i in range(insert_num_1M):
-    tre_1M.insert(Data_set_list[i],[i])
+    tre_1M.insert(Data_set_list[i])
 
 Initial_time_1M = time.time()
 for i in range(insert_num_1M):
