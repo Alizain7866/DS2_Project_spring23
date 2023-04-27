@@ -90,6 +90,61 @@ class AVLTree:
         else:
             return self._search_helper(node.right, key)
 
+    def remove(self, key):
+        self.root = self._remove(self.root, key)
+
+    def _remove(self, node, key):
+        if not node:
+            return None
+        elif key < node.key:
+            node.left = self._remove(node.left, key)
+        elif key > node.key:
+            node.right = self._remove(node.right, key)
+        else:
+            # Case 1: No children
+            if not node.left and not node.right:
+                node = None
+            # Case 2: One child
+            elif not node.left:
+                node = node.right
+            elif not node.right:
+                node = node.left
+            # Case 3: Two children
+            else:
+                # Find the smallest key in the right subtree
+                temp = self._find_min(node.right)
+                node.key = temp.key
+                node.right = self._remove(node.right, temp.key)
+
+        if not node:
+            return None
+
+        # Update the height of the current node
+        node.height = 1 + max(self._get_height(node.left),
+                              self._get_height(node.right))
+
+        # Check if the node is balanced
+        balance = self._get_balance(node)
+
+        # Left-Left Case
+        if balance > 1 and self._get_balance(node.left) >= 0:
+            return self._rotate_right(node)
+
+        # Right-Right Case
+        if balance < -1 and self._get_balance(node.right) <= 0:
+            return self._rotate_left(node)
+
+        # Left-Right Case
+        if balance > 1 and self._get_balance(node.left) < 0:
+            node.left = self._rotate_left(node.left)
+            return self._rotate_right(node)
+
+        # Right-Left Case
+        if balance < -1 and self._get_balance(node.right) > 0:
+            node.right = self._rotate_right(node.right)
+            return self._rotate_left(node)
+
+        return node
         
     def space_complexity(self):
         if not self.root:
