@@ -19,7 +19,7 @@ for i in range (len(data_reader_pandas)):
     Data_set_list.append(int(data_reader_pandas[i][0]))
 
 #Data_set_list.sort()
-#Data_set_list.sort(reverse = True)
+Data_set_list.sort(reverse = True)
 
 insert_num_1000 = 1000
 tre_1000 = SkipList()
@@ -75,7 +75,7 @@ output_list.append((insert_num_10k,final_time_10k))
 
 # 50k
 
-insert_num_50k = 10000
+insert_num_50k = 50000
 tre_50k = SkipList()
 for i in range(insert_num_50k):
     tre_50k.insert(Data_set_list[i])
