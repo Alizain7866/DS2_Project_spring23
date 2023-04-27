@@ -18,6 +18,9 @@ output_list = []
 
 for i in range (len(data_reader_pandas)):
     Data_set_list.append(int(data_reader_pandas[i][0]))
+
+Data_set_list.sort()
+#Data_set_list.sort(False)
 insert_num_1000 = 1000
 tre_1000 = AVLTree()
 Initial_time_1000 = time.time()
